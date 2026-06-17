@@ -2,7 +2,7 @@
 Illumination Adaptation for Generalized Underwater Coral
 Segmentation</h2>
 
-This is an official implementation of CoralSMIA.
+
 ---------------------
 
 ## Environments:
