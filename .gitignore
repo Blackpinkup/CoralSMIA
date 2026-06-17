@@ -1,0 +1,36 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+*.iml
+out
+gen
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Environments and local config
+.env
+.env.*
+venv/
+.venv/
+env/
+
+# Training outputs, datasets, and model artifacts
+checkpoints/
+weights/
+runs/
+outputs/
+work_dirs/
+logs/
+wandb/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.bin

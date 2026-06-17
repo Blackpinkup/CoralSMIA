@@ -1,0 +1,15 @@
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29501 --use_env train_coral.py --config_path baseline_coral.factseg --model_dir ./logs/coralmask_factseg learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 16
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29501 --use_env train_coral.py --config_path baseline_coral.deeplabv3p --model_dir ./logs/coralmask_deeplabv3p learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 16
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29501 --use_env train_coral.py --config_path baseline_coral.hrnetw32 --model_dir ./logs/coralmask_hrnetw32 learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 16
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29501 --use_env train_coral.py --config_path baseline_coral.mask2former --model_dir ./logs/coralmask_mask2formerswins learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 8
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29502 --use_env train_coral.py --config_path baseline_coral.segnext-mscan-b --model_dir ./logs/coralmask_segnextmscanb learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 8
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29502 --use_env train_coral.py --config_path baseline_coral.sfpn --model_dir ./logs/coralmask_sfpnres50 learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 8
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29502 --use_env train_coral.py --config_path baseline_coral.segformer --model_dir ./logs/coralmask_segformer learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 8
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29503 --use_env train_coral.py --config_path baseline_coral.dinov2-sfpn --model_dir ./logs/coralmask_dinov2sfpn learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 4
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29503 --use_env train_coral.py --config_path baseline_coral.dinov2-vitdet --model_dir ./logs/coralmask_dinov2vitdet learning_rate.params.max_iters 15000 train.num_iters 15000 data.train.params.batch_size 4
+
+
+
+CUDA_VISIBLE_DEVICES=1 python eval_coral.py --ckpt_path logs/coralmask_factseg/checkpoint-15000.pth --config_path baseline_coral.factseg
+CUDA_VISIBLE_DEVICES=1 python eval_coral.py --ckpt_path logs/coralmask_deeplabv3p/checkpoint-15000.pth --config_path baseline_coral.deeplabv3p
+CUDA_VISIBLE_DEVICES=0 python eval_coral.py --ckpt_path logs/coralmask_mask2formerswins/checkpoint-15000.pth --config_path baseline_coral.mask2former
